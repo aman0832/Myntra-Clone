@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>My name is <span id="showName"></span></h1>
+  <input type="text" id="username" placeholder="enter your name">
+  <button id="clickButton">Click me</button>
+  <script>
+    let showName = document.getElementById("showName")
+    let uname = document.getElementById("username")
+    let btn = document.getElementById("clickButton")
+    btn.addEventListener("click", () => {
+      let value = uname.value
+      localStorage.setItem("name", value)
+    })
+    window.addEventListener("load", ()=>{
+      let value = localStorage.getItem(`name`)
+      showName.innerText = value
+    })
+  </script>
+</body>
+</html>
